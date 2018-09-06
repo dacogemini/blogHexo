@@ -5,7 +5,8 @@
   "hexo": {
     "version": "3.7.1"
   },
-  "scripts": { "start": "../../public/js/index.js"
+  "scripts": { 
+    "start": "index.js"
   },
   "dependencies": {
     "heroku": "^7.14.2",
