@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>What a game of Hangman can teach us about Node.js | The NODE less traveled</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The example I am going to use is based on a ‘Hangman’ game written completely in Node.js. I chose this example because it uses a lot of Node concepts and allows the reader to see a ‘real-life’ example">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What a game of Hangman can teach us about Node.js">
+<meta property="og:url" content="http://yoursite.com/2018/09/06/hangman/index.html">
+<meta property="og:site_name" content="The NODE less traveled">
+<meta property="og:description" content="The example I am going to use is based on a ‘Hangman’ game written completely in Node.js. I chose this example because it uses a lot of Node concepts and allows the reader to see a ‘real-life’ example">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-09-06T02:23:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What a game of Hangman can teach us about Node.js">
+<meta name="twitter:description" content="The example I am going to use is based on a ‘Hangman’ game written completely in Node.js. I chose this example because it uses a lot of Node concepts and allows the reader to see a ‘real-life’ example">
+<meta name="twitter:creator" content="@https:&#x2F;&#x2F;twitter.com&#x2F;tercera_casa?lang=en">
+  
+    <link rel="alternate" href="/atom.xml" title="The NODE less traveled" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">The NODE less traveled</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-hangman" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/09/06/hangman/" class="article-date">
+  <time datetime="2018-09-06T14:03:45.416Z" itemprop="datePublished">2018-09-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      What a game of Hangman can teach us about Node.js
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p style="line-height: 26px; font-size: 18px;">The example I am going to use is based on a ‘Hangman’ game written completely in Node.js. I chose this example because it uses a lot of Node concepts and allows the reader to see a ‘real-life’ example of server-side Javascript in action. <a href="https://github.com/dacogemini/hangman_node_version" target="_blank" rel="noopener">View Github Repo</a><br><br>The first concept I’ll cover is how to work with inputs in Node.js. There are a number of ways to work with inputs in Node.js. One way is to use the readline module. </p>
+
+<blockquote>
+<p>Let’s break down the first part of the code in our <em>index.js</em> file:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const readline = require(&apos;readline&apos;);</span><br><span class="line">const rl = readline.createInterface(&#123; </span><br><span class="line">    input: process.stdin, </span><br><span class="line">    output: process.stdout </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p style="line-height: 26px; font-size: 18px;"><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Require readline</span></span><br><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">'readline'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// Create our readline interface </span></span><br><span class="line"><span class="keyword">const</span> rl = readline.createInterface(&#123;                 </span><br><span class="line">    input: process.stdin, </span><br><span class="line">    output: process.stdout </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><br><br></p><p style="line-height: 26px; font-size: 18px;">Ok so far, so good. Now here is where things git a bit tricky. When learning programming concepts it’s easy to get side-tracked, but I promise once we go down this ‘rabbit-hole’ we will get back to reading and processing input in a simpler fashion.<br><br>Notice that in our readline instance, we make use of another module, <em>the process module</em>.</p>
+
+<pre><code>input: process.stdin, 
+output: process.stdout 
+</code></pre><p style="line-height: 26px; font-size: 18px;">We know that single threaded operations make Node.js processes more efficient and faster. We also know that most servers have multiple processors. We can easily leverage the extra processors to run our code in parallel with each other and the main application. Node.js offers three specific modules to help with this.<br></p>
+
+<h4 id="process-Module"><a href="#process-Module" class="headerlink" title="process Module"></a><em>process</em> Module</h4><h4 id="The-child-process-Module"><a href="#The-child-process-Module" class="headerlink" title="The child_process Module"></a>The <em>child_process</em> Module</h4><h4 id="The-cluster-Module"><a href="#The-cluster-Module" class="headerlink" title="The cluster Module "></a>The <em>cluster</em> Module <p></p></h4><hr>
+<h2 id="THE-PROCESS-MODULE"><a href="#THE-PROCESS-MODULE" class="headerlink" title="THE PROCESS MODULE"></a>THE PROCESS MODULE</h2><p style="line-height: 26px; font-size: 18px;"><br><strong>The process module provides access to the running processes.</strong> The child_process module provides the ability to create child processes and communicate with them. And cluster module implements clustered servers that share the same port, thus allowing multiple requests to be handled simultaneously.<br><br>For our purposes, we will concentrate on <em>processes</em>, but before we do, let’s take a moment and discuss <em>event emitters</em>.<br><br>Node.js has a built-in <strong>Event System</strong> that will allow us to emit and listen for events that occur.<br>Within this system is a standard module called <em>events</em> which includes an <em>EventEmitter Object</em> that allows us to manipulate events that occur.<br><br>It’s important to understand that the <em>process object</em> is an instance of <em>EventEmitter</em> and <em>stdin</em> &amp; <em>stdout</em><br>are process properties that allow us better control over system interactions.<br><br>So, our <em>readline</em> (including our EventEmitter in the form of <em>process</em> module) is set and now we can tack on a listerer to listen to events (or running processes).<br><br>What is an example of a <em>running process</em> in our hangman game?<br>Well, anything that the user types in would be an example of a running process.<br><br>Let’s have a look at the options for our users.<br><br>1. If the user guesses a letter incorrently the following happens:<br><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (guesses.indexOf(entry) == <span class="number">-1</span>) <span class="comment">// guessed word is -1 (meaning it is not in the array)...</span></span><br><span class="line">    &#123;</span><br><span class="line">        guesses.push(entry);</span><br><span class="line">        guessString += entry + <span class="string">" "</span>; <span class="comment">// guessString = guessString + entry</span></span><br><span class="line">        <span class="keyword">if</span> (word.checkGuess(entry) == <span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">"Incorrect, please try again!"</span>);</span><br><span class="line">            chances--;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">`You have <span class="subst">$&#123;chances&#125;</span> chances remaining.`</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure><br><br></p>
+
+<!-- ![pipes in Node.js](../../source/img/pipe.gif) -->
+<h2 id="THE-EVENT-LOOP"><a href="#THE-EVENT-LOOP" class="headerlink" title="THE EVENT LOOP"></a>THE EVENT LOOP</h2><p style="line-height: 26px; font-size: 18px;"><br>Once the <em>readline</em> interface instance is created, the most common case is to listen for the ‘line’ event:<br>We do exactly this on line 32 in our Github repo </p><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rl.on(<span class="string">"line"</span>, (input) =&gt; &#123; </span><br><span class="line">    <span class="keyword">var</span> entry = input.toUpperCase(); </span><br><span class="line">        <span class="keyword">if</span> (entry == <span class="string">"QUIT"</span> || entry == <span class="string">"NO"</span>) &#123; </span><br><span class="line">rl.close(); </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// Note: our program will not exit until close() is called</span></span><br></pre></td></tr></table></figure><br><br><p style="line-height: 26px; font-size: 18px;"><br>Line Event:<br>The ‘line’ envent is emitted whenever the in stream receives a \n , usually received when the user hits enter, or return.<br><br><em>If you would like to know more about the readline module, stay-tuned. I am working on a blog post in which I show you how to make a ‘Polish Notation’ calculator with the readline module.</em></p>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/09/06/hangman/" data-id="cjlqnn06b0000e0bh8y7ve19h" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">September 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/09/06/hangman/">What a game of Hangman can teach us about Node.js</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Dan Collins<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
