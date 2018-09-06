@@ -31,9 +31,6 @@ show_count: false
 deploy:
   type: git
   repo: https://github.com/dacogemini/blogHexo.git
-  branch: published #published
-  message: #leave this blank
-
 
 # Miscellaneous
 google_analytics:
