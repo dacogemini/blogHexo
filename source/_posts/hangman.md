@@ -2,7 +2,7 @@
 title: What a game of Hangman can teach us about Node.js.
 date: {{ date }}
 ---
-<p style='line-height: 26px; font-size: 18px;'>The example I am going to use is based on a 'Hangman' game written completely in Node.js. I chose this example because it uses a lot of Node concepts and allows the reader to see a 'real-life' example of server-side Javascript in action. [View Github Repo](https://github.com/dacogemini/hangman_node_version)
+<p style='line-height: 26px; font-size: 18px;'>Welcome to the wonderful world of Node.js! The example I am going to use is based on a 'Hangman' game written completely in Node.js. I chose this example because it uses a lot of Node concepts and allows the reader to see a 'real-life' example of server-side Javascript in action. [View Github Repo](https://github.com/dacogemini/hangman_node_version)
 
 The first concept I'll cover is how to work with inputs in Node.js. There are a number of ways to work with inputs in Node.js. One way is to use the readline module. </p>
 
