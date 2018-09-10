@@ -26,7 +26,7 @@ const rl = readline.createInterface({
 });
 ```
 
-<p style='line-height: 26px; font-size: 18px;'>Ok so far, so good. Now here is where things git a bit tricky. When learning programming concepts it's easy to get side-tracked, but I promise once we go down this 'rabbit-hole' we will get back to reading and processing input in a simpler fashion.
+<p style='line-height: 26px; font-size: 18px;'>Ok so far, so good. Now here is where things get a bit tricky. When learning programming concepts it's easy to get side-tracked, but stay with me and you'll be fine.
 
 Notice that in our readline instance, we make use of another module, <em>the process module</em>.</p>
 
@@ -47,6 +47,7 @@ Notice that in our readline instance, we make use of another module, <em>the pro
 For our purposes, we will concentrate on <em>processes</em>, but before we do, let's take a moment and discuss <em>event emitters</em>.
 
 Node.js has a built-in <strong>Event System</strong> that will allow us to emit and listen for events that occur.
+
 Within this system is a standard module called <em>events</em> which includes an <em>EventEmitter Object</em> that allows us to manipulate events that occur. 
 
 It's important to understand that the <em>process object</em> is an instance of <em>EventEmitter</em> and <em>stdin</em> & <em>stdout</em>
