@@ -19,7 +19,7 @@ But for now, we'll get started with getting set up with Mongo DB via mLab.
 
 <h2>Getting Started with MongoDB and mLab</h2>
 
-<p style='line-height: 26px; font-size: 18px;'>So what exactly is mLab? In the simplist of terms, mLab is a remote MongoDB database or cloud database. Your database in mLab is easy to set up (you don't have to worry about configuring MongoDB on different platforms) and it provides a place for our database to live. For our purposes the free sandbox option will work just fine, however, if you were to crete a production application, you may want to check out a pay tier. <p> 
+<p style='line-height: 26px; font-size: 18px;'>So what exactly is mLab? In the simplest terms, mLab is a remote MongoDB database or cloud database. Your database in mLab is easy to set up (you don't have to worry about configuring MongoDB on different platforms) and it provides a place for our database to live. For our purposes the free sandbox option will work just fine, however, if you were to crete a production application, you may want to check out a pay tier. <p> 
 <hr>
 <p style='line-height: 26px; font-size: 18px;'>So let's get to it. Click on the following link to set up an account. [mLab Website](https://mlab.com/ "mLab Website").
 
