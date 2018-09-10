@@ -83,4 +83,6 @@ deploy:
   branch: master
   message: "{{ now('YYYY-MM-DD HH:mm:ss') }}"
 
-
+# Disqus comments
+disqus_shortname: nodelesstraveled
+disqus_enabled: true
