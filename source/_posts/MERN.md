@@ -37,9 +37,9 @@ You will have to choose an AWS Region. I choose US East (Virginia) (us-east-1) a
 <p style='line-height: 26px; font-size: 18px;'>One thing to notice is that a user has to be added to your mLab database (not your mLab user name, but your <strong>database</strong> user name). It's ok to use yourself and whatever password you decide on for the user. Now all we have to do is add <strong>dbuser:dbpassword</strong> that we just set up. 
 </p>
 
-<h2>Getting Started with the <em>backend</em></h2>
+<h2>Setting up our File Structure and Adding Dependencies</h2>
 
-<p style='line-height: 26px; font-size: 18px;'>Ok, now that mLab is set up we can start to build our backend.
+<p style='line-height: 26px; font-size: 18px;'>Ok, now that mLab is set up we can start to build our application structure.
 
 Create a folder and name it anything you'd like (I named mine <em>mernconnect</em>). Open up the folder in the text editor of your choice (I am using <em>Visual Studio Code</em>) navigate to a terminal (ctrl ` in Visual Studio Code) and run the following:
 </p>
@@ -48,7 +48,48 @@ Create a folder and name it anything you'd like (I named mine <em>mernconnect</e
 npm init
 ```
 <p style='line-height: 26px; font-size: 18px;'>
-This command will ask a series of questions, but you can ignore them if you want. After confirming your choices it will initialize Node Package Manager and create a <em>package.json</em> file in our directory. 
+This command will ask a series of questions, but you can ignore them if you'd like, but you may want to consider adding your name as the author, add an entry point of server.js, keywords and indicate the license as an MIT license. After confirming your choices it will initialize Node Package Manager and create a <em>package.json</em> file in our directory. 
+
+The <em>package.json</em> file will include the information you entered. It will also be where we install our dependencies for our app.
 </p>
 
+<h3>Installing Dependencies</h3>
+<p style='line-height: 26px; font-size: 18px;'>Ok, we are ready to add the majority of the dependencies for our app. You may have questions about what some of these dependencies do. Let's get them installed and I will try and explain them briefly as we start using them in our app. 
+
+In your terminal type the following:
+</p>
+
+```javascript
+npm i express mongoose passport passport-jwt jsonwebtoken body-parser bcryptjs validator
+```
+<p style='line-height: 26px; font-size: 18px;'>We are also going to install a dev dependency that restarts and updates our webpage as we save our code. 
+
+In your terminal type the following:
+</p>
+
+```javascript
+npm i -D nodemon
+```
+<p style='line-height: 26px; font-size: 18px;'>If we have a look at our package.json, we should see something similar to below:
+</p>
+
+```javascript
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body": "^5.1.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.12",
+    "parser": "^0.1.4",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
+```
+
+<h2>Adding a <em>config</em> file to house our Mongo path</h2>
 
